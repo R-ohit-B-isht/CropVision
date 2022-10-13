@@ -27,19 +27,28 @@ const Header = (props) => {
   };
 
   const handleChoose = (event) => {
-      inputRef.current.click();
-      
+    inputRef.current.click();
   };
   const handleXmlFileChange = (event) => {
     const file2 = event.target.files[0];
+    
+    var reader = new FileReader();
+
+        reader.onload = function(e) {
+          var content = reader.result;
+          setXmlSource(content);
+          props.onXmlClick(content);
+            //Here the content has been read successfuly
+            
+        }
+
+        reader.readAsText(file2);    
     const url2 = URL.createObjectURL(file2);
-    setXmlSource(url2);
-    props.onXmlClick(url2);
+    
   };
 
   const handleXmlChoose = (event) => {
-      inputRef2.current.click();
-      
+    inputRef2.current.click();
   };
   return (
     <div
@@ -93,15 +102,15 @@ const Header = (props) => {
               onChange={handleFileChange}
               accept=".mkv,.mp4"
               hidden="true"
-                      />
-                  <input
+            />
+            <input
               ref={inputRef2}
               className="Xml_input"
               type="file"
               onChange={handleXmlFileChange}
               accept=".xml,.XML"
               hidden="true"
-                      />    
+            />
             <ul class="dropdown-menu dropdown-animated" role="menu">
               <li role="menu-item" onClick={handleChoose}>
                 <a href="#">Video</a>
@@ -111,6 +120,35 @@ const Header = (props) => {
               </li>
             </ul>
           </div>
+          
+          <div class="nav-item has-sub toggle-hover" id="dropdown">
+            <a class="nav-dropdown-link">Generate</a>
+           
+            <ul class="dropdown-menu dropdown-animated" role="menu">
+              <li role="menu-item" onClick={handleChoose}>
+                <a href="#">Transcript</a>
+              </li>
+              <li role="menu-item" onClick={handleXmlChoose}>
+                <a href="#">Translation</a>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-item has-sub toggle-hover" id="dropdown">
+            <a class="nav-dropdown-link">Download</a>
+           
+            <ul class="dropdown-menu dropdown-animated" role="menu">
+            <li role="menu-item" onClick={handleXmlChoose}>
+                <a href="#">XML</a>
+              </li>
+              <li role="menu-item" onClick={handleChoose}>
+                <a href="#">PDF</a>
+              </li>
+              <li role="menu-item" onClick={handleXmlChoose}>
+                <a href="#">SRT</a>
+              </li>
+            </ul>
+          </div>
+
           <div class="nav-item active">
             <a href="#">Editor</a>
           </div>
