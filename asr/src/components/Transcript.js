@@ -2,6 +2,7 @@ import React from "react";
 import XMLParser from "react-xml-parser";
 import { xml2json, json2xml } from "xml-js";
 import './texteditor.css'
+
 // const Transcript = (props) => {
 //   const { mySource } = props;
 //   const [source, setSource] = React.useState();
@@ -181,6 +182,15 @@ class Transcript extends React.Component {
         // }}
 
         />
+{/* <JoditEditor
+			// ref={editor}
+			value={this.state.textAreaValue}
+			// config={config}
+			tabIndex={1} // tabIndex of textarea
+			// onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+			onChange={ newContent=>this.setState({textAreaValue:newContent})}
+		/> */}
+
       </div>
     );
   }
