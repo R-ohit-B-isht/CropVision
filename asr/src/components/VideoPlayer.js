@@ -36,7 +36,7 @@ export default function VideoPlayer(props) {
           <video
             className="VideoInput_video"
             width="100%"
-            height={height}
+            // height={height}
             controls
             src={source}
           />
