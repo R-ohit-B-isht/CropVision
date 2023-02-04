@@ -25,9 +25,9 @@ function Projects() {
          "https://newsdata.io/api/1/news?apikey=pub_166031ee927e8064260dfb2313c642e98a34f&q=agriculture"
         //`${Constant.baseUrl}${Constant.topHeadLine}?apiKey=${Constant.newsApiKey}&language=${Constant.language}`
       );
-      const data =  response;
+      const data =  response.data;
       setArticles(data.results);
-      console.log(articles)
+      console.log(data.results)
     }catch (error) {
       console.error(error.message);
     }
@@ -38,24 +38,24 @@ function Projects() {
     <Container fluid className="project-section">
       <Container>
         <h1 className="project-heading">
-          My Recent <strong className="Fluorescent-Blue">Works </strong>
+           Recent <strong className="Fluorescent-Blue">News </strong>
         </h1>
-        <p>Here are a few projects I've worked on recently.</p>
+        <p>Here are Top news related to Agriculture.</p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
         {(articles)&&articles.map((article, index) => (
         <Col md={6} lg={4} className="project-card">
         <ProjectCard
           key={index}
-          imgPath={article.urlToImage}
+          imgPath={article.image_url}
           title={article.title}
           description={article.description}
-          ghLink="#"
-          demoLink={article.url}
+          ghLink={article.link}
+          demoLink={article.link}
         />
         </Col>
       ))}
 
-          <Col md={6} lg={4} className="project-card">
+          {/* <Col md={6} lg={4} className="project-card">
             <ProjectCard
               imgPath={Portfolio}
               title="Portfolio Website"
@@ -82,7 +82,7 @@ function Projects() {
               ghLink="https://github.com/rahuljha4171/Expense-Tracker"
               demoLink="https://expense-tracker.rahuljha4171.vercel.app/"
             />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
       <ScrollToTop />

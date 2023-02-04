@@ -45,7 +45,7 @@ function About() {
             />
           </Col>
         </Row>
-        <h1 data-aos="fade-right">
+        {/* <h1 data-aos="fade-right">
           <span className="primary-header">Skillset</span> I Work With
         </h1>
 
@@ -60,7 +60,7 @@ function About() {
           <Toolstack data-aos="fade-up" />
         </div>
 
-        <Github />
+        <Github /> */}
       </Container>
       <ScrollToTop />
     </Container>

@@ -81,3 +81,74 @@
   background: var(--clr-txt);
   border: 2px solid var(--clr-primary);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.user-message {
+  background-color: lightblue;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background-color: lightgray;
+  align-self: flex-start;
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid lightgray;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: lightblue;
+  color: white;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
