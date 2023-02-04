@@ -22,8 +22,8 @@ function Projects() {
     const fetchData = async () => {
       try{
         const response = await axios.get(
-        "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=fbaab164d1f44f429c232b5c8d8d3791"
-        // `${Constant.baseUrl}${Constant.topHeadLine}?apiKey=${Constant.newsApiKey}&language=${Constant.language}`
+        // "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=fbaab164d1f44f429c232b5c8d8d3791"
+        `${Constant.baseUrl}${Constant.topHeadLine}?apiKey=${Constant.newsApiKey}&language=${Constant.language}`
       );
       const data = await response.json();
       setArticles(data.articles);
