@@ -10,9 +10,9 @@ import ExpenseTracker from "../../Assets/Projects/ExpenseTracker.png";
 
 import "./project.css";
 const Constant = {
-  newsApiKey: '6f07f6997a714c05b6c6646cc25280ce',
-  baseUrl: 'https://newsapi.org/v2/',
-  topHeadLine: '/top-headlines',
+  newsApiKey: 'pub_166031ee927e8064260dfb2313c642e98a34f',
+  baseUrl: 'https://newsdata.io/api/1/news?',
+  // topHeadLine: 'news?',
   language: 'en'
 };
 function Projects() {
@@ -22,11 +22,11 @@ function Projects() {
     const fetchData = async () => {
       try{
         const response = await axios.get(
-        // "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=fbaab164d1f44f429c232b5c8d8d3791"
-        `${Constant.baseUrl}${Constant.topHeadLine}?apiKey=${Constant.newsApiKey}&language=${Constant.language}`
+         "https://newsdata.io/api/1/news?apikey=pub_166031ee927e8064260dfb2313c642e98a34f&q=agriculture"
+        //`${Constant.baseUrl}${Constant.topHeadLine}?apiKey=${Constant.newsApiKey}&language=${Constant.language}`
       );
-      const data = await response.json();
-      setArticles(data.articles);
+      const data =  response;
+      setArticles(data.results);
       console.log(articles)
     }catch (error) {
       console.error(error.message);
