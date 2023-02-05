@@ -1,5 +1,6 @@
 import React, { useRef ,useState} from "react";
 import Card from "react-bootstrap/Card";
+import axios from 'axios'
 import tempImg from "../../Assets/square-image.png"
 import { AiOutlineArrowRight } from "react-icons/ai";
 
@@ -9,12 +10,23 @@ function AboutCard() {
   const [disease,setDisease]=useState("")
   const inputRef = useRef();
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
     const urlx = URL.createObjectURL(file);
     setSource(urlx);
     setinputImage(file);
     console.log(file)
+    const response = await axios.post(
+      "https://54.89.179.149:8000/api/diseasedetection",
+      { 'sentFile':urlx },
+      {
+        headers: {
+          "Content-Type": "mulitpart/form-data",
+        },
+      }
+    );
+    console.log(response)
+
   }
   const handleChoose = (e) => { 
     e.preventDefault();

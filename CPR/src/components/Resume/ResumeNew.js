@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import axios from "axios";
+import { Configuration, OpenAIApi } from 'openai'
 import Button from "react-bootstrap/Button";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -12,6 +13,10 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 // text-davinci-003
 const API_KEY = "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";
 const ENGINE_ID = "text-davinci-003";
+const configuration = new Configuration({
+  apiKey: API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 function ResumeNew() {
   const [width, setWidth] = useState(1200);
@@ -25,10 +30,11 @@ function ResumeNew() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessages([...messages, { text: inputValue, isUser: true }]);
+    setInputValue("");
     console.log(messages);
     const response = await axios.post(
-      "https://api.openai.com/v1/completions ",
-      { model: "text-davinci-003", prompt: `${inputValue}` },
+      "https://api.openai.com/v1/completions/",
+      { model: "code-davinci-002", prompt: `${inputValue}` },
       {
         headers: {
           "Content-Type": "application/json",
@@ -36,6 +42,18 @@ function ResumeNew() {
         },
       }
     );
+
+    // const response = await openai.createCompletion({
+    //   model: "text-davinci-003",
+    //   prompt:`${inputValue}` ,
+    //   temperature: 0,
+    //   max_tokens: 100,
+    //   top_p: 1,
+    //   frequency_penalty: 0.0,
+    //   presence_penalty: 0.0,
+    //   stop: ["\n"],
+    // });
+    console.log(response)
     let out = response.data.choices;
     console.log("~~~~~", out);
     setMessages([
@@ -43,7 +61,7 @@ function ResumeNew() {
       { text: response.data.choices[0].text, isUser: false },
     ]);
     console.log(messages);
-    setInputValue("");
+    
   };
   const handleInput = (e) => {
     setInputValue(e.target.value);

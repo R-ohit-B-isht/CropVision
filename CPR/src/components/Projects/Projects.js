@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import ProjectCard from "./ProjectCards";
 import axios from 'axios';
+import tempImg from "../../Assets/square-image.png" 
 import PrivateChat from "../../Assets/Projects/PrivateChat.png";
 import Portfolio from "../../Assets/Projects/Portfolio.png";
 import Ecart from "../../Assets/Projects/ecart.png";
@@ -51,7 +52,7 @@ function Projects() {
         <Col md={6} lg={4} className="project-card">
         <ProjectCard
           key={index}
-          imgPath={article.image_url}
+          imgPath={article.image_url !=null ? article.image_url:tempImg}
           title={article.title}
           description={article.description}
           ghLink={article.link}
