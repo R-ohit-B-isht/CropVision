@@ -12,7 +12,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 // 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
 // text-davinci-003
 const API_KEY = "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";
-const ENGINE_ID = "text-davinci-003";
+// const ENGINE_ID = "text-davinci-003";
 const configuration = new Configuration({
   apiKey: API_KEY,
 });
