@@ -20,7 +20,6 @@ function ResumeNew() {
     setWidth(window.innerWidth);
   }, []);
   const [inputValue, setInputValue] = useState("");
-  const [outputValue, setOutputValue] = useState("");
   const [messages, setMessages] = useState([]);
 
   const handleSubmit = async (e) => {
@@ -53,6 +52,7 @@ function ResumeNew() {
   return (
     <div>
       <Container fluid className="resume-section">
+        <h2>AgroAdvisor</h2>
         <div className="chat-container">
           <div className="messages-container">
             {messages.map((message, index) => (
@@ -73,7 +73,9 @@ function ResumeNew() {
               value={inputValue}
               onChange={handleInput}
             />
-            <button style={{marginright: "20px"}}type="submit">Send</button>
+            <button style={{ marginright: "20px" }} type="submit">
+              Send
+            </button>
           </form>
         </div>
         <ScrollToTop />

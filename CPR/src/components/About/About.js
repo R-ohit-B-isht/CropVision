@@ -12,6 +12,7 @@ import "./about.css";
 function About() {
   return (
     <Container fluid className="about-section">
+      <h2>Action/Treatment Information</h2>
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>
           <Col
