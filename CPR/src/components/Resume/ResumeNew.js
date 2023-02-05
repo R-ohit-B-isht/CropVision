@@ -25,8 +25,7 @@ function ResumeNew() {
     setWidth(window.innerWidth);
   }, []);
   const [inputValue, setInputValue] = useState("");
-  const [messages, setMessages] = useState([{ text: "which organic fertilizer is best to buy ?", isUser: true }, {text:"The best organic fertilizer to buy depends on several factors, including the type of plants you are growing, the soil conditions, and your climate. Some popular options include compost, manure, bone meal, blood meal, cottonseed meal, and fish emulsion. It's recommended to conduct a soil test to determine the specific nutrients your soil is lacking, and then choose an organic fertilizer that can supply those nutrients. Additionally, you can consult with a local nursery or agricultural extension service for personalized recommendations.", isUser: false}
-]);
+  const [messages, setMessages] = useState([]);
 //which organic fertilizer is best to buy ?
   //{ text: "which organic fertilizer is best to buy ?", isUser: true }, {text:"The best organic fertilizer to buy depends on several factors, including the type of plants you are growing, the soil conditions, and your climate. Some popular options include compost, manure, bone meal, blood meal, cottonseed meal, and fish emulsion. It's recommended to conduct a soil test to determine the specific nutrients your soil is lacking, and then choose an organic fertilizer that can supply those nutrients. Additionally, you can consult with a local nursery or agricultural extension service for personalized recommendations.", isUser: false}
   const handleSubmit = async (e) => {
