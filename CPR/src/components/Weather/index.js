@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import ReactWeather from "react-open-weather";
 //Optional include of the default css styles
 // import "react-open-weather/lib/css/ReactWeather.css";
-import {WeatherWidget} from "@daniel-szulc/react-weather-widget"
+import { WeatherWidget } from "@daniel-szulc/react-weather-widget";
 import "./weather.css";
 
 function Weather() {
@@ -15,19 +15,30 @@ function Weather() {
         type="city"
         city="Patiala"
       /> */}
-            <WeatherWidget 
-        autoLocate="ip"
-    /><WeatherWidget 
-    autoLocate="gps"
-/>
-<WeatherWidget
-        provider='openWeather'
-        apiKey='57a22a572891747ed9386e55ca77de01'
-        location='Patiala'
+      <WeatherWidget
+        provider="openWeather"
+        apiKey="57a22a572891747ed9386e55ca77de01"
+        location="Rajpura"
         tempUnit="C"
         windSpeedUnit="mps"
         lang="pl"
-    />
+      />
+      <WeatherWidget
+        provider="openWeather"
+        apiKey="57a22a572891747ed9386e55ca77de01"
+        location="Ambala"
+        tempUnit="C"
+        windSpeedUnit="mps"
+        lang="pl"
+      />
+      <WeatherWidget
+        provider="openWeather"
+        apiKey="57a22a572891747ed9386e55ca77de01"
+        location="Patiala"
+        tempUnit="C"
+        windSpeedUnit="mps"
+        lang="pl"
+      />
     </div>
   );
 }

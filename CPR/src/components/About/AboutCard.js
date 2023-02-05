@@ -84,10 +84,12 @@ function AboutCard() {
           <br/>
           Method 2:Spray the plants with fungicide sprays (Recommended: Calcium chloride sprays) and make sure to cover all parts of the plant that is above ground, focusing specifically on the underside of leaves.</p>}
         {(disease == "STRAWBERRY LEAF SCORCH") && <p>
+          <h3>Disease : STRAWBERRY LEAF SCORCH</h3>
+          <br/>
           Method 1:Let the plant dry out by altering the watering practices and allowing for dryer conditions.
           <br/>
           Method 2:Treat the plant with organic fungicides. (Captan 50 WP & Copper compounds)
-          <br/>Note:Can be prevented most effectively with the use of resistant varieties. (Allstar, Jewell, Midway & etc.).</p>}
+          <br/> <br/>Note:Can be prevented most effectively with the use of resistant varieties. (Allstar, Jewell, Midway & etc.).</p>}
         
         {(disease == "TOMATO MOSAIC VIRUS") && <p>
         <h3>TOMATO MOSAIC VIRUS</h3>
@@ -107,7 +109,7 @@ function AboutCard() {
         {(disease == "CORN COMMON RUST") && <p>
         <h3>CORN COMMON RUST</h3>
           <br/>
-          Method 1:\nPlant resistant hybrids such as commercial corn.
+          Method 1:Plant resistant hybrids such as commercial corn.
           <br />
           Method 2:Go for tillage and crop rotation
           <br />
