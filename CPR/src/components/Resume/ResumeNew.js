@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
-import axios from 'axios';
+import axios from "axios";
 import Button from "react-bootstrap/Button";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -19,59 +19,63 @@ function ResumeNew() {
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [outputValue, setOutputValue] = useState("");
   const [messages, setMessages] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessages([...messages, { text: inputValue, isUser: true }]);
-    console.log(messages)
+    console.log(messages);
     const response = await axios.post(
-      'https://api.openai.com/v1/completions',
-      {"model": "text-davinci-003","prompt": `${inputValue}` },
+      "https://api.openai.com/v1/completions ",
+      { model: "text-davinci-003", prompt: `${inputValue}` },
       {
-          headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${API_KEY}`
-          }
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${API_KEY}`,
+        },
       }
     );
-    let out=response.data.choices
-    console.log('~~~~~',out)
-    setMessages([...messages, { text: response.data.choices[0].text, isUser: false }]);
-    console.log(messages)
-    setInputValue('');
-
+    let out = response.data.choices;
+    console.log("~~~~~", out);
+    setMessages([
+      ...messages,
+      { text: response.data.choices[0].text, isUser: false },
+    ]);
+    console.log(messages);
+    setInputValue("");
   };
-  const handleInput =(e) => {
-    setInputValue(e.target.value)
-  }
+  const handleInput = (e) => {
+    setInputValue(e.target.value);
+  };
 
   return (
     <div>
       <Container fluid className="resume-section">
-      <div className="chat-container">
-      <div className="messages-container">
-        {messages.map((message, index) => (
-          <div
-            className={`message ${message.isUser ? "user-message" : "bot-message"}`}
-            key={index}
-          >
-            <h4 style={{color:"black"}}>{message.text}</h4>
+        <div className="chat-container">
+          <div className="messages-container">
+            {messages.map((message, index) => (
+              <div
+                className={`message ${
+                  message.isUser ? "user-message" : "bot-message"
+                }`}
+                key={index}
+              >
+                <h4 style={{ color: "black" }}>{message.text}</h4>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <form className="input-container" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Type your message here..."
-          value={inputValue}
-          onChange={handleInput}
-        />
-        <button type="submit">Send</button>
-      </form>
-    </div>
+          <form className="input-container" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Type your message here..."
+              value={inputValue}
+              onChange={handleInput}
+            />
+            <button style={{marginright: "20px"}}type="submit">Send</button>
+          </form>
+        </div>
         <ScrollToTop />
       </Container>
     </div>

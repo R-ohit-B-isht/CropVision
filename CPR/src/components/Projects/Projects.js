@@ -42,6 +42,11 @@ function Projects() {
         </h1>
         <p>Here are Top news related to Agriculture.</p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          { (!articles.length)&&<><div id="loadingUi" style={{ display: "block" }}>
+                <div class="ui active dimmer">
+                  <div class="ui indeterminate text loader">Loading News</div>
+                </div>
+              </div></>}
         {(articles)&&articles.map((article, index) => (
         <Col md={6} lg={4} className="project-card">
         <ProjectCard

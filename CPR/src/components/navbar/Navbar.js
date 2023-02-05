@@ -50,6 +50,7 @@ function NavBar() {
             className="img-fluid logo"
             alt="brand"
           />
+          <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>CropVision</Nav.Link>
         </Navbar.Brand>
 
         <Navbar.Toggle

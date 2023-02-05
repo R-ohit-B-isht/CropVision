@@ -9,6 +9,7 @@ import Home2 from "./Home2";
 import Type from "./Type";
 import "./home.css";
 
+
 function Home() {
   return (
     <section>
@@ -44,12 +45,14 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <ReactWeather
+      
+      <Weather />
+      {/* <ReactWeather
         forecast="5days"
         apikey="7ad07aac9b0943040a4abdd2c23dfc4e"
         type="city"
         city="Patiala"
-      />
+      /> */}
       {/* <Home2 /> */}
       <ScrollToTop />
     </section>
