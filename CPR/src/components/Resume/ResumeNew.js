@@ -71,7 +71,7 @@ function ResumeNew() {
   return (
     <div>
       <Container fluid className="resume-section">
-        <h2>AgroAdvisor</h2>
+        <h2>CropVision</h2>
         <div className="chat-container">
           <div className="messages-container">
             {messages.map((message, index) => (

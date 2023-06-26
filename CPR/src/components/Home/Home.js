@@ -26,7 +26,7 @@ function Home() {
               </h1>
 
               <h1 className="heading-name">
-                <strong className="main-name"> Agro Advisor</strong>
+                <strong className="main-name"> Crop Vision</strong>
               </h1>
 
               {/* <div style={{ padding: 30 }} className="type">

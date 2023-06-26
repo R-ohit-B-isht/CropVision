@@ -50,7 +50,7 @@ function NavBar() {
             className="img-fluid logo"
             alt="brand"
           />
-          <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>Agro Advisor</Nav.Link>
+          <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>Crop Vision</Nav.Link>
         </Navbar.Brand>
 
         <Navbar.Toggle
