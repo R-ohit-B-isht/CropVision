@@ -22,7 +22,7 @@ class TensorflowLiteClassificationModel:
             image = image / 255.
 
         if image.shape == (1, 224, 224):
-            image = np.stack(image*3, axis=0)
+            image = np.stack([image, image, image], axis=-1)
 
         return self.run(image)
 
@@ -50,5 +50,7 @@ class MainModelConfig(AppConfig):
           'Potato Early Blight',
           'Corn Gray Leaf Spot'
           ]
-    # Load TFLite model and allocate tensors.
-    model = TensorflowLiteClassificationModel(os.path.join(settings.BASE_DIR,"main_model/cnn_model/model.tflite"),labels=labels)
+    model = None
+    
+    def ready(self):
+        pass
