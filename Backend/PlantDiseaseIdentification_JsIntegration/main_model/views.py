@@ -14,15 +14,11 @@ class call_model(APIView):
         # return render(request,'index.html')
         return Response({"Info":"Upload images to get disease predition values! , img var sentFile"})
     def post(self,request):
-        if MainModelConfig.model is None:
-            MainModelConfig.model = TensorflowLiteClassificationModel(
-                os.path.join(settings.BASE_DIR,"main_model/cnn_model/model.tflite"),
-                labels=MainModelConfig.labels
-            )
+        model = MainModelConfig.get_model()
         
         f=request.data['sentFile'] 
         file_name = "pic.jpg"
         file_name_2 = default_storage.save(file_name, f)
         file_url = default_storage.url(file_name_2)
-        response = MainModelConfig.model.run_from_filepath(os.path.join(settings.MEDIA_ROOT,file_name_2))[0]
+        response = model.run_from_filepath(os.path.join(settings.MEDIA_ROOT,file_name_2))[0]
         return Response({"Disease_Name" : response[0] , "Score" : response[1]})

@@ -50,7 +50,16 @@ class MainModelConfig(AppConfig):
           'Potato Early Blight',
           'Corn Gray Leaf Spot'
           ]
-    model = None
+    _model = None
+    
+    @classmethod
+    def get_model(cls):
+        if cls._model is None:
+            cls._model = TensorflowLiteClassificationModel(
+                os.path.join(settings.BASE_DIR,"main_model/cnn_model/model.tflite"),
+                labels=cls.labels
+            )
+        return cls._model
     
     def ready(self):
         pass
