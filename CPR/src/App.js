@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
+import BatchAnalysis from "./components/BatchAnalysis/BatchAnalysis";
 
 import Resume from "./components/Resume/ResumeNew";
 import { ThemeContext } from "./Context/theme";
@@ -39,9 +40,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/project" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="*" element={<Navigate to="/" />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/resume" element={<Resume />} />
+                        <Route path="/batch-analysis" element={<BatchAnalysis />} />
+                        <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       </Router>
